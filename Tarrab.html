@@ -1,0 +1,36 @@
+<html>
+    <style>
+        body {
+            background-image: url("Images/Tarrab/Tarrab1.jpg");
+            background-size: 100% 100%;
+        }
+        #dontStop {
+            color: red;
+        }
+    </style>
+    <head>
+        <title>The Tarrab Zone</title>
+    </head>
+    <body>
+        <h6 style="text-align: center; font-size: 100px; font-family: cursive;">ALAN TARRAB</h6>
+    </body>
+    <script>
+        var a = 1;
+        setInterval(function() {
+            document.body.style.backgroundImage = 'url(Images/Tarrab/Tarrab' + a + '.jpg)';
+            a = a + 1;
+            if(a == 5) {
+                a = 1;
+            }
+        },500)
+        var b = 0;
+        let colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+        setInterval(function() {
+            document.body.style.color = colors[b];
+            b = b + 1;
+            if(b == 7) {
+                b = 0;
+            }
+        },20)
+    </script>
+</html>

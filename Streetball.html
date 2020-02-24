@@ -1,0 +1,30 @@
+<html>
+    <style>
+        body {
+            background-image: url('Images/Streetball.png');
+            background-size: 100% 100%;
+            /*background-color: red;*/
+        }
+    </style>
+    <head>
+        <title>STREETBALL</title>
+    </head>
+    <body onload="streetballClassic()">
+        <h1 style = "position:absolute;left:30px;top:30px;color:white;">Score One: <span id="score1">0</span></h1>
+        <label for="modes">Choose a Mode:</label>
+        <select id="modes">
+            <option value="classic">Classic</option>
+        </select>
+        <h1 style = "position:absolute;right:30px;top:30px;color:white;">Score Two: <span id="score2">0</span></h1>
+        <div id='paddle1' style="position:absolute;
+        left:0px;top:460px;width:10px;height:150px;
+        background-color: white;"></div>
+        <div id='paddle2' style="position:absolute;
+        right:0px;top:460px;width:10px;height:150px;
+        background-color: white;"></div>
+        <div id='ball' style="position:absolute;
+        left:50%;top:510px;width:25px;height:25px;
+        background-color: red;border-radius:50%;"></div>
+    </body>
+    <script src="javascript.js"></script>
+</html>
