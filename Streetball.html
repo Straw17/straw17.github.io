@@ -1,9 +1,13 @@
 <html>
     <style>
         body {
-            background-image: url('Images/Streetball.png');
+            background-image: url('Images/Streetball.PNG');
             background-size: 100% 100%;
             /*background-color: red;*/
+        }
+        #modeSelect {
+            margin: 0 auto;
+            width: 200px;
         }
     </style>
     <head>
@@ -11,10 +15,13 @@
     </head>
     <body onload="streetballClassic()">
         <h1 style = "position:absolute;left:30px;top:30px;color:white;">Score One: <span id="score1">0</span></h1>
-        <label for="modes">Choose a Mode:</label>
-        <select id="modes">
-            <option value="classic">Classic</option>
-        </select>
+        <div id="modeSelect">
+            <label for="modes" style="color: white;">Choose a Mode:</label>
+            <select id="modes">
+                <option value="classic">Classic</option>
+                <option value="speedy">Speedy</option>
+            </select>
+        </div>
         <h1 style = "position:absolute;right:30px;top:30px;color:white;">Score Two: <span id="score2">0</span></h1>
         <div id='paddle1' style="position:absolute;
         left:0px;top:460px;width:10px;height:150px;
@@ -26,5 +33,19 @@
         left:50%;top:510px;width:25px;height:25px;
         background-color: red;border-radius:50%;"></div>
     </body>
-    <script src="javascript.js"></script>
+    <script src="javascript.js">
+        document.getElementById("modes").onchange = changeListener;
+
+        function changeListener() {
+            var value = this.value
+                console.log(value);
+            switch(value) {
+                case classic:
+                    streetballClassic()
+                    break;
+                case speedy:
+                    break;
+            }
+        }
+    </script>
 </html>

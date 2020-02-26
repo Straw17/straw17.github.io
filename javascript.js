@@ -4,11 +4,10 @@ function bottoMood() {
     document.body.style.backgroundImage = 'url(Images/Botto/' + imgName + ')';
 }
 
-function streetballClassic() {
+function streetball(ballAcceleration) {
     var paddleHeight = 150;
     var paddleWidth = 10;
     var ballRadius = 25;
-    var halfPaddleHeight = paddleHeight / 2;
     var speedOfPaddle1 = 0;
     var positionOfPaddle1 = 460;
     var speedOfPaddle2 = 0;
@@ -95,7 +94,7 @@ function streetballClassic() {
         if (leftPositionOfBall <= paddleWidth - 2) {
             if (topPositionOfBall > positionOfPaddle1 &&
                 topPositionOfBall < positionOfPaddle1 + paddleHeight) {
-                leftSpeedOfBall = -leftSpeedOfBall * 1.17;
+                leftSpeedOfBall = -leftSpeedOfBall * ballAcceleration;
             } else {
                 score2 += 1;
                 startBall();
@@ -104,7 +103,7 @@ function streetballClassic() {
         if (leftPositionOfBall >= window.innerWidth - ballRadius - paddleWidth) {
             if (topPositionOfBall > positionOfPaddle2 &&
                 topPositionOfBall < positionOfPaddle2 + paddleHeight) {
-                leftSpeedOfBall = -leftSpeedOfBall * 1.17;
+                leftSpeedOfBall = -leftSpeedOfBall * ballAcceleration;
             } else {
                 score1 += 1;
                 startBall();
@@ -117,4 +116,8 @@ function streetballClassic() {
         document.getElementById('score1').innerHTML = score1.toString();
         document.getElementById('score2').innerHTML = score2.toString();
     }, 1000 / 60);
+}
+
+function streetballClassic() {
+    streetball(1.15);
 }
