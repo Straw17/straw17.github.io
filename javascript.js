@@ -118,8 +118,7 @@ function streetball() {
                 topSpeedOfBall = -topSpeedOfBall;
             }
             if (leftPositionOfBall <= paddleWidth - 2) {
-                if (topPositionOfBall > positionOfPaddle1 &&
-                    topPositionOfBall < positionOfPaddle1 + paddleHeight) {
+                if (topPositionOfBall > positionOfPaddle1 && topPositionOfBall < positionOfPaddle1 + paddleHeight) {
                     leftSpeedOfBall = -leftSpeedOfBall * ballAcceleration;
                 } else {
                     score2 += 1;
@@ -127,8 +126,7 @@ function streetball() {
                 }
             }
             if (leftPositionOfBall >= window.innerWidth - ballRadius - paddleWidth + 2) {
-                if ((topPositionOfBall > positionOfPaddle2 &&
-                    topPositionOfBall < positionOfPaddle2 + paddleHeight) || (isPractice=="true")) {
+                if ((topPositionOfBall > positionOfPaddle2 && topPositionOfBall < positionOfPaddle2 + paddleHeight) || (isPractice=="true")) {
                     leftSpeedOfBall = -leftSpeedOfBall * ballAcceleration;
                 } else {
                     score1 += 1;
