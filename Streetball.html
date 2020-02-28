@@ -1,51 +1,87 @@
 <html>
-    <style>
-        body {
-            background-image: url('./Images/Streetball.PNG');
-            background-size: 100% 100%;
-            /*background-color: red;*/
-        }
-        #modeSelect {
-            margin: 0 auto;
-            width: 200px;
-        }
-    </style>
-    <head>
-        <title>STREETBALL</title>
-    </head>
-    <body onload="streetballClassic()">
-        <h1 style = "position:absolute;left:30px;top:30px;color:white;">Score One: <span id="score1">0</span></h1>
-        <div id="modeSelect">
-            <label for="modes" style="color: white;">Choose a Mode:</label>
-            <select id="modes">
-                <option value="classic">Classic</option>
-                <option value="speedy">Speedy</option>
-            </select>
-        </div>
-        <h1 style = "position:absolute;right:30px;top:30px;color:white;">Score Two: <span id="score2">0</span></h1>
-        <div id='paddle1' style="position:absolute;
+<style>
+    body {
+        background-image: url('Images/Streetball.PNG');
+        background-size: 100% 100%;
+        /*background-color: red;*/
+    }
+
+    #modeSelect {
+        margin: 0 auto;
+        width: 200px;
+    }
+
+    .flex-container {
+        display: flex;
+    }
+</style>
+
+<head>
+    <title>STREETBALL</title>
+</head>
+
+<body onload="streetball()">
+    <p hidden id="practiceBool">false</p>
+    <p hidden id="name">classic</p>
+    <p hidden id="ballAcceleration">1.15</p>
+    <p hidden id="initBallSpeed">5</p>
+    <div id="scoreShow1"><h1 style="position:absolute;left:30px;top:30px;color:white;">Score One: <span id="score1">0</span></h1></div>
+    <div id="scoreShow2"><h1 style="position:absolute;right:30px;top:30px;color:white;">Score Two: <span id="score2">0</span></h1></div>
+    <div id="modeSelect">
+        <label for="modes" style="color: white;">Choose a Mode:</label>
+        <select id="modes" onchange="changeMode(this.value)">
+            <option value="classic">Classic</option>
+            <option value="speedy">Speedy</option>
+        </select>
+    </div>
+    <div style="margin: 0 auto; width:200px;">
+        <label for="practice" style="color: white;">Turn on Practice Mode:</label>
+        <label class="switch" id="practice">
+            <input type="checkbox" onchange="practice(this.checked)">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <div id='target1' style="position:absolute;
+        left:0px;top:0px;width:10px;height:100%;
+        background-color: gray;"></div>
+    <div id='target2' style="position:absolute;
+        right:0px;top:0px;width:10px;height:100%;
+        background-color: gray;"></div>
+    <div id='paddle1' style="position:absolute;
         left:0px;top:460px;width:10px;height:150px;
         background-color: white;"></div>
-        <div id='paddle2' style="position:absolute;
+    <div id='paddle2' style="position:absolute;
         right:0px;top:460px;width:10px;height:150px;
         background-color: white;"></div>
-        <div id='ball' style="position:absolute;
+    <div id='ball' style="position:absolute;
         left:50%;top:510px;width:25px;height:25px;
         background-color: red;border-radius:50%;"></div>
-    </body>
-    <script src="javascript.js">
-        document.getElementById("modes").onchange = changeListener;
-
-        function changeListener() {
-            var value = this.value
-                console.log(value);
-            switch(value) {
-                case classic:
-                    streetballClassic()
-                    break;
-                case speedy:
-                    break;
-            }
+</body>
+<script src="javascript.js"></script>
+<script>
+    function changeMode(value) {
+        switch (value) {
+            case "classic":
+                streetballClassic()
+                break;
+            case "speedy":
+                streetballSpeedy();
+                break;
         }
-    </script>
+    }
+    function practice(checked) {
+        if(checked == true) {
+            document.getElementById("practiceBool").innerHTML = true;
+            document.getElementById("scoreShow1").style.display = "none";
+            document.getElementById("scoreShow2").style.display = "none";
+            document.getElementById("paddle2").style.display = "none";
+        } else {
+            document.getElementById("practiceBool").innerHTML = false;
+            document.getElementById("scoreShow1").style.display = "block";
+            document.getElementById("scoreShow2").style.display = "block";
+            document.getElementById("paddle2").style.display = "block";
+        }
+    }
+</script>
+
 </html>
