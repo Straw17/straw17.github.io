@@ -91,7 +91,6 @@ function streetball() {
     observer2.observe(target2, config2);
 
     window.setInterval(function show() {
-        alert(leftSpeedOfBall);
         if (document.activeElement.id != "modes") {
             positionOfPaddle1 += speedOfPaddle1;
             positionOfPaddle2 += speedOfPaddle2;
