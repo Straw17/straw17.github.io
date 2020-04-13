@@ -22,6 +22,7 @@
 
 <body onload="streetball()">
     <p hidden id="practiceBool">false</p>
+    <p hidden id="psychics">false</p>
     <p hidden id="name">classic</p>
     <p hidden id="ballAcceleration">1.15</p>
     <p hidden id="initBallSpeed">5</p>
@@ -32,6 +33,7 @@
         <select id="modes" onchange="changeMode(this.value)">
             <option value="classic">Classic</option>
             <option value="speedy">Speedy</option>
+            <option value="psychic">Psychic</option>
         </select>
     </div>
     <div style="margin: 0 auto; width:200px;">
@@ -66,6 +68,9 @@
                 break;
             case "speedy":
                 streetballSpeedy();
+                break;
+            case "psychic":
+                streetballPsychic();
                 break;
         }
     }
