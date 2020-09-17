@@ -1,32 +1,107 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <style>
-        body {
-            background-image: url('Images/Snake.gif');
-            background-size: 225px;
-        }
-        #top {
-            text-align: center;
-            font-size: 60px;
-        }
-    </style>
-    <head>
-        <title>Home</title>
-        <div id="top">
-            <h1><b>Table of Contents</b></h1>
-        </div>
-    </head>
-    <body>
-        <div>
-            <ul>
-                <li><a href="Help.html"><button><p>Help with RegEx</p></button></a></li>
-                <li><a href="Tarrab.html"><button><p>Alan Tarrab</p></button></a></li>
-                <li><a href="https://github.com/Straw17?tab=repositories"><button><p>GitHub</p></button></a></li>
-                <li><a href="Robotics.html"><button><p>Robotics</p></button></a></li>
-                <li><a href="Streetball.html"><button><p>Play Streetball</p></button></a></li>
-                <li><button onclick="bottoMood()"><p>Botto's Current Mood</p></button></li>
-            </ul>
-        </div>
-    </body>
-    <script src="javascript.js"></script>
+<style>
+    #top {
+        margin: auto;
+        max-width: 960px;
+        background-color: white;
+        text-align: center;
+        font-size: 60px;
+    }
+
+    .gallery {
+        margin: auto;
+        width: 80%;
+        background-color: white;
+        padding: 15px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, 5vw);
+        grid-gap: 15px;
+    }
+
+    .ga {
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .ga1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    .ga2 {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    .ga3 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 5;
+    }
+
+    .ga4 {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 5;
+    }
+
+    .ga5 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 7;
+    }
+
+    .ga6 {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 5;
+        grid-row-end: 7;
+    }
+</style>
+
+<head>
+    <link rel="icon" type="image/png" href="Images/Botto/botto8.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="Images/Botto/botto8.png" sizes="32x32">
+    <title>Home</title>
+    <div id="top">
+        <h1><b>Table of Contents</b></h1>
+    </div>
+</head>
+
+<body>
+    <div class="gallery">
+        <figure class="ga ga1"><a href="Streetball.html">
+                <image title="STREETBALL: THE NUMBER ONE STREETBALL GAME" class="ga" src="Images/Streetball.png"></image>
+            </a></figure>
+        <figure class="ga ga2"><a href="Tarrab.html">
+                <image title="The Tarrab Zone" class="ga" src="Images/Tarrab/Tarrab1.jpg"></image>
+            </a></figure>
+        <figure class="ga ga3"><a href="https://github.com/Straw17?tab=repositories">
+                <image title="My Github" class="ga" src="Images/git.png"></image>
+            </a></figure>
+        <figure class="ga ga4"><a href="Robotics.html">
+                <image title="Robotics" class="ga" src="Images/Dozer.jpeg"></image>
+            </a></figure>
+        <figure class="ga ga5"><a href="Help.html">
+                <image title="RegEx is pretty great" class="ga" src="Images/regex.png"></image>
+            </a></figure>
+        <figure class="ga ga6">
+            <image title="Ask for Botto's current mood.
+Useful for making important decisions."class="ga" src="Images/Botto/botto3.png" onclick="bottoMood()"></image>
+        </figure>
+    </div>
+</body>
+<script src="javascript.js"></script>
+
 </html>

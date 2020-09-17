@@ -4,15 +4,14 @@
             background-image: url("Images/Tarrab/Tarrab1.jpg");
             background-size: 100% 100%;
         }
-        #dontStop {
-            color: red;
-        }
     </style>
     <head>
+        <link rel="icon" type="image/png" href="Images/Botto/botto8.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="Images/Botto/botto8.png" sizes="32x32">
         <title>The Tarrab Zone</title>
     </head>
     <body>
-        <h6 style="text-align: center; font-size: 100px; font-family: Comic Sans MS;">ALAN TARRAB</h6>
+        <p style="text-align: center; font-family: 'Comic Sans MS', 'Comic Sans', 'cursive';"><b>ALAN TARRAB</b></p>
     </body>
     <script>
         var a = 1;
@@ -22,7 +21,7 @@
             if(a == 5) {
                 a = 1;
             }
-        },500)
+        },5)
         var b = 0;
         let colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
         setInterval(function() {
@@ -30,6 +29,14 @@
             b = b + 1;
             if(b == 7) {
                 b = 0;
+            }
+        },20)
+        var c = 0;
+        setInterval(function() {
+            document.body.style.fontSize = 75 + 10*b + "px";
+            c = c + 1;
+            if(c == 5) {
+                c = 0;
             }
         },20)
     </script>
