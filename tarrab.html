@@ -1,0 +1,43 @@
+<html>
+    <style>
+        body {
+            background-image: url("images/tarrab/tarrab1.jpg");
+            background-size: 100% 100%;
+        }
+    </style>
+    <head>
+        <link rel="icon" type="image/png" href="images/botto/botto8.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="images/botto/botto8.png" sizes="32x32">
+        <title>The Tarrab Zone</title>
+    </head>
+    <body>
+        <p style="text-align: center; font-family: 'Comic Sans MS', 'Comic Sans', 'cursive';"><b>ALAN TARRAB</b></p>
+    </body>
+    <script>
+        var a = 1;
+        setInterval(function() {
+            document.body.style.backgroundImage = 'url(images/Tarrab/Tarrab' + a + '.jpg)';
+            a = a + 1;
+            if(a == 5) {
+                a = 1;
+            }
+        },5)
+        var b = 0;
+        let colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+        setInterval(function() {
+            document.body.style.color = colors[b];
+            b = b + 1;
+            if(b == 7) {
+                b = 0;
+            }
+        },20)
+        var c = 0;
+        setInterval(function() {
+            document.body.style.fontSize = 75 + 10*b + "px";
+            c = c + 1;
+            if(c == 5) {
+                c = 0;
+            }
+        },20)
+    </script>
+</html>
