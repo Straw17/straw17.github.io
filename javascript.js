@@ -1,7 +1,7 @@
 function bottoMood() {
     var randomNumber = Math.floor((Math.random() * 12) + 1);
     var imgName = "botto" + randomNumber + ".png";
-    document.body.style.backgroundImage = 'url(Images/Botto/' + imgName + ')';
+    document.body.style.backgroundImage = 'url(images/botto/' + imgName + ')';
 }
 
 function streetball() {
