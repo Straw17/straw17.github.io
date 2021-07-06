@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            text-align: center;
+        }
+        
+        .header-skull {
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            vertical-align: middle;
+        }
+
+        .header-text {
+            display: inline-block;
+            font-size: 40px;
+            vertical-align: middle;
+        }
+
+        #skeleton {
+            max-height: 300px;
+        }
+
+    </style>
+
+    <head>
+        <link rel="icon" type="image/png" href="images/botto/botto8.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="images/botto/botto8.png" sizes="32x32">
+        <title>THE RAVEYARD</title>
+    </head>
+
+    <body onload="party()">
+        <div class="header">
+            <img class="header-skull" src="images/skulls/skull2.gif">
+            <h1 class="header-text"">WELCOME TO THE RAVEYARD</h1>
+            <img class="header-skull" src="images/skulls/skull2.gif">
+        </div>
+        <div id="party">
+
+        </div>
+    </body>
+
+    <script>
+        var imgHeight;
+        var imgWidth;
+
+        function party() {
+            for(let i = 1; i <= 15; i++) {
+                var img = new Image();
+                img.src = "images/dance/skeleton" + i + ".gif";
+                img.id = "skeleton";
+
+                var src = document.getElementById("party");
+                src.appendChild(img);
+            }
+        }
+    </script>
+</html>
