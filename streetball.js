@@ -1,8 +1,8 @@
 function streetball() {
     var paddleHeight = 150;
     var paddleWidth = 10;
-    var ballRadius = 25;
-    var maxSpeedOfPaddle = 10;
+    var ballDiameter = 25;
+    var maxSpeedOfPaddle = 20;
     var speedOfPaddle1 = 0;
     var positionOfPaddle1 = 460;
     var speedOfPaddle2 = 0;
@@ -30,40 +30,40 @@ function streetball() {
         hasPsychics = document.getElementById("psychics").innerHTML;
         ballAcceleration = document.getElementById("ballAcceleration").innerHTML;
         initBallSpeed = document.getElementById("initBallSpeed").innerHTML;
-        topPositionOfBall = window.innerHeight / 2;
-        leftPositionOfBall = window.innerWidth / 2;
+        topPositionOfBall = (window.innerHeight-100) / 2 + 100 - ballDiameter / 2;
+        leftPositionOfBall = window.innerWidth / 2 - ballDiameter / 2;
         topSpeedOfBall = sides[Math.floor(Math.random() * sides.length)] * initBallSpeed;
         leftSpeedOfBall = sides[Math.floor(Math.random() * sides.length)] * initBallSpeed;
     }
 
     document.addEventListener('keydown', function (e) {
-        if (e.keyCode == 87 || e.which == 87) { //W key
+        if (e.key == 'w' || e.key == 'W') {
             speedOfPaddle1 -= 10;
         }
-        if (e.keyCode == 83 || e.which == 83) { //S key
+        if (e.key == 's' || e.key == 'S') {
             speedOfPaddle1 += 10;
         }
         if(isPractice != "true") {
-            if (e.keyCode == 38 || e.which == 38) { //up arrow
+            if (e.key == 'ArrowUp') { //up arrow
                 speedOfPaddle2 -= 10;
             }
-            if (e.keyCode == 40 || e.which == 40) { //down arrow
+            if (e.key == 'ArrowDown') { //down arrow
                 speedOfPaddle2 += 10;
             }
         }
     }, false);
 
     document.addEventListener('keyup', function (e) {
-        if (e.keyCode == 87 || e.which == 87) { //W key
+        if (e.key == 'w' || e.key == 'W') { //W key
             speedOfPaddle1 = 0;
         }
-        if (e.keyCode == 83 || e.which == 83) { //S key
+        if (e.key == 's' || e.key == 'S') { //S key
             speedOfPaddle1 = 0;
         }
-        if (e.keyCode == 38 || e.which == 38) { //up arrow
+        if (e.key == 'ArrowUp') { //up arrow
             speedOfPaddle2 = 0;
         }
-        if (e.keyCode == 40 || e.which == 40) { //down arrow
+        if (e.key == 'ArrowDown') { //down arrow
             speedOfPaddle2 = 0;
         }
     }, false);
@@ -91,13 +91,14 @@ function streetball() {
     observer2.observe(target2, config2);
 
     window.setInterval(function show() {
-        /*if(Math.abs(speedOfPaddle1) > maxSpeedOfPaddle) {
+        if(Math.abs(speedOfPaddle1) >= maxSpeedOfPaddle) {
             speedOfPaddle1 = maxSpeedOfPaddle * (speedOfPaddle1/Math.abs(speedOfPaddle1));
         }
-        if(Math.abs(speedOfPaddle2) > maxSpeedOfPaddle) {
+        if(Math.abs(speedOfPaddle2) >= maxSpeedOfPaddle) {
             speedOfPaddle2 = maxSpeedOfPaddle * (speedOfPaddle2/Math.abs(speedOfPaddle2));
-        }*/
-        if (document.activeElement.id != "modes") {
+        }
+
+        if (document.activeElement.id != "modes" && document.activeElement.id != "backgrounds") {
             positionOfPaddle1 += speedOfPaddle1;
             positionOfPaddle2 += speedOfPaddle2;
 
@@ -124,10 +125,16 @@ function streetball() {
             topPositionOfBall += topSpeedOfBall;
             leftPositionOfBall += leftSpeedOfBall;
 
-            if (topPositionOfBall <= 100 || (topPositionOfBall >= window.innerHeight - ballRadius - 5)) {
+            if (topPositionOfBall <= 100) {
+                topPositionOfBall = 100;
+                topSpeedOfBall = -topSpeedOfBall;
+            } else if (topPositionOfBall >= window.innerHeight - ballDiameter) {
+                topPositionOfBall = window.innerHeight - ballDiameter;
                 topSpeedOfBall = -topSpeedOfBall;
             }
-            if (leftPositionOfBall <= paddleWidth - 2) {
+
+            if (leftPositionOfBall <= paddleWidth) {
+                leftPositionOfBall = paddleWidth;
                 if (topPositionOfBall > positionOfPaddle1 && topPositionOfBall < positionOfPaddle1 + paddleHeight) {
                     if(hasPsychics == "true") {
                         topSpeedOfBall += (speedOfPaddle1*friction);
@@ -137,8 +144,8 @@ function streetball() {
                     score2 += 1;
                     startBall();
                 }
-            }
-            if (leftPositionOfBall >= window.innerWidth - ballRadius - paddleWidth + 2) {
+            } else if (leftPositionOfBall >= window.innerWidth - paddleWidth - ballDiameter) {
+                leftPositionOfBall = window.innerWidth - paddleWidth - ballDiameter;
                 if ((topPositionOfBall > positionOfPaddle2 && topPositionOfBall < positionOfPaddle2 + paddleHeight) || (isPractice=="true")) {
                     if(hasPsychics == "true") {
                         topSpeedOfBall += (speedOfPaddle2*friction);

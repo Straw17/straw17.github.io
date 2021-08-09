@@ -1,72 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <style>
-    #top {
-        margin: auto;
-        max-width: 960px;
-        background-color: white;
+    * {
+        align-items: center;
+        color: white;
+        background-color: black;
+        font-family: 'Courier New', monospace;
+    }
+    h1 {
         text-align: center;
-        font-size: 60px;
+        font-size: 4em;
     }
-
-    .gallery {
-        margin: auto;
-        width: 80%;
-        background-color: white;
-        padding: 15px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(6, 5vw);
-        grid-gap: 15px;
+    a {
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 20px;
     }
-
-    .ga {
-        margin: auto;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .ga1 {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 1;
-        grid-row-end: 3;
-    }
-
-    .ga2 {
-        grid-column-start: 3;
-        grid-column-end: 5;
-        grid-row-start: 1;
-        grid-row-end: 3;
-    }
-
-    .ga3 {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 3;
-        grid-row-end: 5;
-    }
-
-    .ga4 {
-        grid-column-start: 3;
-        grid-column-end: 5;
-        grid-row-start: 3;
-        grid-row-end: 5;
-    }
-
-    .ga5 {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 5;
-        grid-row-end: 7;
-    }
-
-    .ga6 {
-        grid-column-start: 3;
-        grid-column-end: 5;
-        grid-row-start: 5;
-        grid-row-end: 7;
+    div {
+        align-items: center;
+        width: 400px;
+        margin: 0 auto;
     }
 </style>
 
@@ -74,32 +27,19 @@
     <link rel="icon" type="image/png" href="images/cousinbotto.png" sizes="16x16">
     <link rel="icon" type="image/png" href="images/cousinbotto.png" sizes="32x32">
     <title>Home</title>
-    <div id="top">
-        <h1><b>Table of Contents</b></h1>
-    </div>
 </head>
 
 <body>
-    <div class="gallery">
-        <figure class="ga ga1"><a href="streetball.html" target="_blank">
-                <image title="STREETBALL: THE NUMBER ONE STREETBALL GAME" class="ga" src="images/streetball.PNG"></image>
-            </a></figure>
-        <figure class="ga ga2"><a href="tarrab.html" target="_blank">
-                <image title="The Tarrab Zone" class="ga" src="images/tarrab/tarrab1.jpg"></image>
-            </a></figure>
-        <figure class="ga ga3"><a href="https://github.com/Straw17?tab=repositories" target="_blank">
-                <image title="My Github" class="ga" src="images/git.png"></image>
-            </a></figure>
-        <figure class="ga ga4"><a href="robotics.html" target="_blank">
-                <image title="Robotics" class="ga" src="images/dozer.jpeg"></image>
-            </a></figure>
-        <figure class="ga ga5"><a href="help.html" target="_blank">
-                <image title="RegEx is pretty great" class="ga" src="images/regex.png"></image>
-            </a></figure>
-        <figure class="ga ga6"><a href="botto.html" target="_blank">
-            <image title="Ask for Botto's current mood.
-Useful for making important decisions."class="ga" src="images/botto/botto3.png"></image>
-        </a></figure>
+    <h1>Table of Contents</h1>
+    <div>
+        <a href="botto.html" target="_blank">botto.html - The Botto Oracle Service</a><br>
+        <a href="grave.html" target="_blank">grave.html - n00b.io Grave</a><br>
+        <a href="graveyard.html" target="_blank">graveyard.html - Skeleton Party Area</a><br>
+        <a href="links.html" target="_blank">links.html - Interesting Links</a><br>
+        <a href="robotics.html" target="_blank">robotics.html - FRC Team 619</a><br>
+        <a href="streetball.html" target="_blank">streetball.html - The #1 Streetball Game</a><br>
+        <a href="tarrab.html" target="_blank">tarrab.html - The Tarrab Zone</a><br>
+        <a href="https://github.com/Straw17?tab=repositories" target="_blank">My GitHub</a><br>
     </div>
 </body>
 </html>

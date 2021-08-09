@@ -1,27 +1,63 @@
 <!DOCTYPE html>
 <html>
     <style>
-        body {
-            background-size: 25vw 25vh;
-            height: 100vh;
-            margin: 0;
+        * {
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+        .img-div {
+            position: absolute;
+	        top:0; bottom: 0; left: 0; right: 0;
+  	        margin: auto;
+
+            width: 400px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
             cursor: pointer;
+            outline: 10px solid white;
+        }
+        #replace {
+            vertical-align: middle;
+            width: 350px;
+            height: 350px;
+            margin: auto;
+        }
+        .return {
+            position: absolute;
+            top: 5px;
+        }
+        .return-link {
+            text-decoration: none;
+            color: white;
         }
     </style>
 
     <head>
         <link rel="icon" type="image/png" href="images/cousinbotto.png" sizes="16x16">
         <link rel="icon" type="image/png" href="images/cousinbotto.png" sizes="32x32">
-        <title>n00b.io Grave</title>
+        <title>The Botto Oracle Service</title>
     </head>
 
-    <body onload="bottoMood()" onclick="bottoMood()"></body>
+    <body>
+        <div class="return"><b><a class="return-link" href="index.html"><-- Table of Contents</a></b></div>
+        <div class="text">
+            <h1>The Botto Box</h1>
+            <p>Ask a question and then click in the box to get Botto's opinion.</p>
+        </div>
+        <div class="img-div" onclick="bottoMood()">
+            <img id="replace">
+        </div>
+    </body>
 
     <script>
         function bottoMood() {
             var randomNumber = Math.floor((Math.random() * 8) + 1);
             var imgName = "botto" + randomNumber + ".png";
-            document.body.style.backgroundImage = 'url(images/botto/' + imgName + ')';
+            //document.body.style.backgroundImage = 'url(images/botto/' + imgName + ')';
+            document.getElementById("replace").src = 'images/botto/' + imgName;
         }
     </script>
 </html>

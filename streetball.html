@@ -1,95 +1,188 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        body {
-            background-image: url('images/streetball.PNG');
-            background-repeat: no-repeat;
-            background-size: 100vw 100vh;
-        }
+<style>
+    body {
+        font-family: 'Courier New', monospace;
+        background-color: #222222;
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+        margin: 0px;
+    }
 
-        #modeSelect {
-            margin: 0 auto;
-            width: 200px;
-        }
+    .flex-container {
+        display: flex;
+    }
 
-        .flex-container {
-            display: flex;
-        }
-    </style>
+    .page-top {
+        background-color: black;
+        height: 100px;
+    }
 
-    <head>
-        <link rel="icon" type="image/png" href="images/cousinbotto.png" sizes="16x16">
-        <link rel="icon" type="image/png" href="images/cousinbotto.png" sizes="32x32">
-        <title>STREETBALL</title>
-    </head>
+    .settings {
+        margin: 0 auto;
+        width: 300px;
+        height: 40px;
+    }
 
-    <body onload="streetball()">
-        <p hidden id="practiceBool">false</p>
-        <p hidden id="psychics">false</p>
-        <p hidden id="name">classic</p>
-        <p hidden id="ballAcceleration">1.15</p>
-        <p hidden id="initBallSpeed">5</p>
-        <div id="scoreShow1"><h1 style="position:absolute;left:30px;top:30px;color:white;">Score One: <span id="score1">0</span></h1></div>
-        <div id="scoreShow2"><h1 style="position:absolute;right:30px;top:30px;color:white;">Score Two: <span id="score2">0</span></h1></div>
-        <div id="modeSelect">
-            <label for="modes" style="color: white;">Choose a Mode:</label>
-            <select id="modes" onchange="changeMode(this.value)">
-                <option value="classic">Classic</option>
-                <option value="speedy">Speedy</option>
-                <option value="psychic">Psychic</option>
-            </select>
+    .score {
+        top: 30px;
+        color: white;
+        margin-left: 20px;
+        margin-right: 20px;
+        height: 60px;
+    }
+
+    #target1 {
+        position: absolute;
+        left: 0px;
+        top: 100px;
+        width: 10px;
+        height: calc(100vh - 100px);
+        background-color: gray;
+    }
+
+    #target2 {
+        position: absolute;
+        right: 0px;
+        top: 100px;
+        width: 10px;
+        height: calc(100vh - 100px);
+        background-color: gray;
+    }
+
+    #paddle1 {
+        position: absolute;
+        left: 0px;
+        top: 460px;
+        width: 10px;
+        height: 150px;
+        background-color: white;
+    }
+
+    #paddle2 {
+        position: absolute;
+        right: 0px;
+        top: 460px;
+        width: 10px;
+        height: 150px;
+        background-color: white;
+    }
+
+    #ball {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-color: red;
+        border-radius: 50%;
+    }
+    .return {
+        position: absolute;
+        top: 5px;
+    }
+    .return-link {
+        text-decoration: none;
+        color: white;
+    }
+</style>
+
+<head>
+    <link rel="icon" type="image/png" href="images/cousinbotto.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="images/cousinbotto.png" sizes="32x32">
+    <title>STREETBALL</title>
+</head>
+
+<body onload="streetball()">
+    <p hidden id="practiceBool">false</p>
+    <p hidden id="psychics">false</p>
+    <p hidden id="name">classic</p>
+    <p hidden id="ballAcceleration">1.15</p>
+    <p hidden id="initBallSpeed">5</p>
+    <div class="return"><b><a class="return-link" href="index.html"><-- Table of Contents</a></b></div>
+    <div class="page-top">
+        <div class="settings">
+            <div>
+                <label for="modes" style="color: white;">Choose a Mode:</label>
+                <select id="modes" onchange="changeMode(this.value)">
+                    <option value="classic">Classic</option>
+                    <option value="speedy">Speedy</option>
+                    <option value="psychic">Psychic</option>
+                </select>
+            </div>
+            <div>
+                <label for="backgrounds" style="color: white;">Choose a Background:</label>
+                <select id="backgrounds" onchange="changeBackground(this.value)">
+                    <option value="gray">Gray</option>
+                    <option value="black">Black</option>
+                    <option value="original">Original</option>
+                </select>
+            </div>
+            <div>
+                <label for="practice" style="color: white;">Turn on Practice Mode:</label>
+                <label class="switch" id="practice">
+                    <input type="checkbox" onchange="practice(this.checked)">
+                    <span class="slider round"></span>
+                </label>
+            </div>
         </div>
-        <div style="margin: 0 auto; width:200px;">
-            <label for="practice" style="color: white;">Turn on Practice Mode:</label>
-            <label class="switch" id="practice">
-                <input type="checkbox" onchange="practice(this.checked)">
-                <span class="slider round"></span>
-            </label>
+        <div>
+            <div id="scoreShow1">
+                <h1 class="score" style="float:left;">SCORE ONE: <span id="score1">0</span></h1>
+            </div>
+            <div id="scoreShow2">
+                <h1 class="score" style="float:right;">SCORE TWO: <span id="score2">0</span></h1>
+            </div>
         </div>
-        <div id='target1' style="position:absolute;
-            left:0px;top:0px;width:10px;height:100%;
-            background-color: gray;"></div>
-        <div id='target2' style="position:absolute;
-            right:0px;top:0px;width:10px;height:100%;
-            background-color: gray;"></div>
-        <div id='paddle1' style="position:absolute;
-            left:0px;top:460px;width:10px;height:150px;
-            background-color: white;"></div>
-        <div id='paddle2' style="position:absolute;
-            right:0px;top:460px;width:10px;height:150px;
-            background-color: white;"></div>
-        <div id='ball' style="position:absolute;
-            left:50%;top:510px;width:25px;height:25px;
-            background-color: red;border-radius:50%;"></div>
-    </body>
+    </div>
+    <div id='target1'></div>
+    <div id='target2'></div>
+    <div id='paddle1'></div>
+    <div id='paddle2'></div>
+    <div id='ball'></div>
+</body>
 
-    <script src="streetball.js"></script>
-    <script>
-        function changeMode(value) {
-            switch (value) {
-                case "classic":
-                    streetballClassic()
-                    break;
-                case "speedy":
-                    streetballSpeedy();
-                    break;
-                case "psychic":
-                    streetballPsychic();
-                    break;
-            }
+<script src="streetball.js"></script>
+<script>
+    function changeMode(value) {
+        switch (value) {
+            case "classic":
+                streetballClassic()
+                break;
+            case "speedy":
+                streetballSpeedy();
+                break;
+            case "psychic":
+                streetballPsychic();
+                break;
         }
-        function practice(checked) {
-            if(checked == true) {
-                document.getElementById("practiceBool").innerHTML = true;
-                document.getElementById("scoreShow1").style.display = "none";
-                document.getElementById("scoreShow2").style.display = "none";
-                document.getElementById("paddle2").style.display = "none";
-            } else {
-                document.getElementById("practiceBool").innerHTML = false;
-                document.getElementById("scoreShow1").style.display = "block";
-                document.getElementById("scoreShow2").style.display = "block";
-                document.getElementById("paddle2").style.display = "block";
-            }
+    }
+    function changeBackground(value) {
+        switch (value) {
+            case "gray":
+                document.body.style.backgroundColor = "#222222";
+                document.body.style.backgroundImage = "none";
+                break;
+            case "black":
+                document.body.style.backgroundColor = "black";
+                document.body.style.backgroundImage = "none";
+                break;
+            case "original":
+                document.body.style.backgroundColor = "none";
+                document.body.style.backgroundImage = "url('images/streetball.PNG')";
+                break;
         }
-    </script>
+    }
+    function practice(checked) {
+        if (checked == true) {
+            document.getElementById("practiceBool").innerHTML = true;
+            document.getElementById("scoreShow1").style.display = "none";
+            document.getElementById("scoreShow2").style.display = "none";
+            document.getElementById("paddle2").style.display = "none";
+        } else {
+            document.getElementById("practiceBool").innerHTML = false;
+            document.getElementById("scoreShow1").style.display = "block";
+            document.getElementById("scoreShow2").style.display = "block";
+            document.getElementById("paddle2").style.display = "block";
+        }
+    }
+</script>
 </html>

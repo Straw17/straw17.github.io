@@ -5,25 +5,30 @@
             background-color: black;
             color: red;
             text-align: center;
-        }
-        
+            font-family: 'Courier New', monospace;
+        } 
         .header-skull {
             display: inline-block;
             height: 100px;
             width: 100px;
             vertical-align: middle;
         }
-
         .header-text {
             display: inline-block;
             font-size: 40px;
             vertical-align: middle;
         }
-
         #skeleton {
             max-height: 300px;
         }
-
+        .return {
+            text-align: left;
+            top: 5px;
+        }
+        .return-link {
+            text-decoration: none;
+            color: white;
+        }
     </style>
 
     <head>
@@ -33,6 +38,7 @@
     </head>
 
     <body onload="party()">
+        <div class="return"><b><a class="return-link" href="index.html"><-- Table of Contents</a></b></div>
         <div class="header">
             <img class="header-skull" src="images/skulls/skull2.gif">
             <h1 class="header-text"">WELCOME TO THE RAVEYARD</h1>
