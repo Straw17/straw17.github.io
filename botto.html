@@ -33,6 +33,10 @@
             text-decoration: none;
             color: white;
         }
+        .text {
+            margin: auto;
+            width: 600px;
+        }
     </style>
 
     <head>
@@ -45,6 +49,7 @@
         <div class="return"><b><a class="return-link" href="index.html"><-- Table of Contents</a></b></div>
         <div class="text">
             <h1>The Botto Box</h1>
+            <p>Otto Eduard Leopold, Prince of Botto, Duke of The Ooer, known as Otto von Botto, was an omnipresent demigod who materialized in the form of a internet bot in 1871 and served as the first chancellor of Bottonia until 2316, in which capacity he dominated European affairs for centuries.</p>
             <p>Ask a question and then click in the box to get Botto's opinion.</p>
         </div>
         <div class="img-div" onclick="bottoMood()">
@@ -56,7 +61,6 @@
         function bottoMood() {
             var randomNumber = Math.floor((Math.random() * 8) + 1);
             var imgName = "botto" + randomNumber + ".png";
-            //document.body.style.backgroundImage = 'url(images/botto/' + imgName + ')';
             document.getElementById("replace").src = 'images/botto/' + imgName;
         }
     </script>

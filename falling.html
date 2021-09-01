@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            background: black;
+            display: block;
+        }
+    </style>
+    <head>
+        <link rel="icon" type="image/png" href="images/cousinbotto.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="images/cousinbotto.png" sizes="32x32">
+        <title>Falling Text</title>
+    </head>
+    <body>
+        <canvas></canvas>
+    </body>
+    <script>
+        //modified code from https://codepen.io/yaclive/pen/EayLYO
+    
+        var canvas = document.querySelector('canvas');
+        var ctx = canvas.getContext('2d');
+    
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    
+        var letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZ';
+        letters = letters.split('');
+    
+        var fontSize = 7;
+        var columns = canvas.width / fontSize;
+    
+        var drops = [];
+        var dropStarted = [];
+        for(var i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * ((canvas.height / fontSize) / 2 + 1));
+            dropStarted[i] = false;
+        }
+    
+        function init() {
+            return Math.random() > .99;
+        }
+    
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, .08)'; //background and drop length
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff00'; //drop color
+            for(var i = 0; i < drops.length; i++) {
+                if(!dropStarted[i]) {
+                    dropStarted[i] = init();
+                    continue;
+                }
+    
+                var text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                drops[i]++;
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.95) { //drop restart
+                    drops[i] = 0;
+                }
+            }
+        }
+    
+        setInterval(draw, 40);
+    </script>
+</html>
