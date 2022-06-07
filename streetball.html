@@ -3,7 +3,8 @@
 <style>
     body {
         font-family: 'Courier New', monospace;
-        background-color: #222222;
+        background-color: None;
+        background-image: url('images/streetball.PNG');
         background-repeat: no-repeat;
         background-size: 100vw 100vh;
         margin: 0px;
@@ -111,9 +112,9 @@
             <div>
                 <label for="backgrounds" style="color: white;">Choose a Background:</label>
                 <select id="backgrounds" onchange="changeBackground(this.value)">
+                    <option value="original">Original</option>
                     <option value="gray">Gray</option>
                     <option value="black">Black</option>
-                    <option value="original">Original</option>
                 </select>
             </div>
             <div>
@@ -157,6 +158,10 @@
     }
     function changeBackground(value) {
         switch (value) {
+            case "original":
+                document.body.style.backgroundColor = "none";
+                document.body.style.backgroundImage = "url('images/streetball.PNG')";
+                break;
             case "gray":
                 document.body.style.backgroundColor = "#222222";
                 document.body.style.backgroundImage = "none";
@@ -164,10 +169,6 @@
             case "black":
                 document.body.style.backgroundColor = "black";
                 document.body.style.backgroundImage = "none";
-                break;
-            case "original":
-                document.body.style.backgroundColor = "none";
-                document.body.style.backgroundImage = "url('images/streetball.PNG')";
                 break;
         }
     }
