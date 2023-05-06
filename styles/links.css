@@ -1,0 +1,50 @@
+body {
+    align-items: center;
+    color: white;
+    background-color: black;
+    font-family: 'Courier New', monospace;
+}
+h1 {
+    text-align: center;
+    font-size: 4em;
+}
+.table {
+    width: 700px;
+    margin: 0 auto;
+}
+table {
+    width: 100%;
+}
+th {
+    text-align: center;
+    padding: 10px;
+}
+tr {
+    text-align: left;
+}
+td {
+    padding: 10px;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+}
+
+tr:nth-child(odd) {background: #333333 !important;}
+tr:nth-child(even) {background: #222222 !important;}
+
+.return {
+    position: absolute;
+    top: 5px;
+}
+.return-link {
+    text-decoration: none;
+    color: white;
+}
+.text {
+    margin: auto;
+    width: 600px;
+    margin-bottom: 40px;
+    text-align: center;
+}
